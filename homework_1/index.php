@@ -32,7 +32,7 @@ if ($age >= 18 && $age <= 65) {
 } else {
     echo 'Неизвестный возраст' . BR;
 }
-echo BR . BR;
+echo BR;
 
 //Task 4
 $day = rand(1, 20);
@@ -87,9 +87,7 @@ $cars = [
 
 foreach ($cars as $name => $car) {
     echo 'CAR ' . $name . BR;
-    foreach ($car as $spec) {
-        echo $spec . ' ';
-    }
+    echo implode(' ', $car);
     echo BR;
 }
 echo BR . BR;
