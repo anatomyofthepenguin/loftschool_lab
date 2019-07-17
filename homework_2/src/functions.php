@@ -60,12 +60,10 @@ function task2()
 
 function task3($num1, $num2)
 {
-    if (!is_int($num1) || !is_int($num2)) {
-        echo "Ошибка: один или оба аргумента не целое число!";
-        return false;
-    }
+    $num1 = (int) $num1;
+    $num2 = (int) $num2;
 
-    if ($num1 <= 0 || $num2 <= 0) {
+    if ($num1 < 1 || $num2 < 1) {
         echo "Ошибка: числа должны быть больше 0!";
         return false;
     }

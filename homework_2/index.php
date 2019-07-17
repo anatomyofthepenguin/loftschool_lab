@@ -46,3 +46,4 @@ task5();
 echo BR . BR;
 //Task 6
 task6('test.txt');
+echo BR.BR;
