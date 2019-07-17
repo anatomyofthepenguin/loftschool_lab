@@ -35,19 +35,20 @@ function task2()
     }
 
     $result = $numbers[0];
-    for ($i = 1; $i < count($numbers); $i++) {
+    unset($numbers[0]);
+    foreach ($numbers as $number) {
         switch ($action) {
             case '+':
-                $result += $numbers[$i];
+                $result += $number;
                 break;
             case '-':
-                $result -= $numbers[$i];
+                $result -= $number;
                 break;
             case '/':
-                $result /= $numbers[$i];
+                $result /= $number;
                 break;
             case '*':
-                $result *= $numbers[$i];
+                $result *= $number;
                 break;
             default:
                 echo 'Неизвестный оператор';
