@@ -9,6 +9,7 @@ function task1(array $strings, bool $concatenated = false)
     foreach ($strings as $string) {
         echo "<p>$string</p>";
     }
+    return true;
 }
 
 function task2()
@@ -17,9 +18,8 @@ function task2()
     $args = func_get_args();
     $action = array_shift($args);
     $numbers = [];
-    $result = null;
 
-    if (!is_string($action) && in_array($action, $actions)) {
+    if (!is_string($action) || !in_array($action, $actions)) {
         echo "Первый аргумент должен обозначать арифмтическое действие!";
         return false;
     }
@@ -34,23 +34,20 @@ function task2()
         return false;
     }
 
-    foreach ($numbers as $key => $number) {
-        if ($key == 0) {
-            $result = $number;
-            continue;
-        }
+    $result = $numbers[0];
+    for ($i = 1; $i < count($numbers); $i++) {
         switch ($action) {
             case '+':
-                $result += $number;
+                $result += $numbers[$i];
                 break;
             case '-':
-                $result -= $number;
+                $result -= $numbers[$i];
                 break;
             case '/':
-                $result /= $number;
+                $result /= $numbers[$i];
                 break;
             case '*':
-                $result *= $number;
+                $result *= $numbers[$i];
                 break;
             default:
                 echo 'Неизвестный оператор';
@@ -58,12 +55,18 @@ function task2()
         }
     }
     echo "Реузультат: $result";
+    return true;
 }
 
 function task3($num1, $num2)
 {
     if (!is_int($num1) || !is_int($num2)) {
         echo "Ошибка: один или оба аргумента не целое число!";
+        return false;
+    }
+
+    if ($num1 <= 0 || $num2 <= 0) {
+        echo "Ошибка: числа должны быть больше 0!";
         return false;
     }
 
@@ -77,7 +80,7 @@ function task3($num1, $num2)
         echo '</tr>';
     }
     echo '</table>';
-
+    return true;
 }
 
 function task4()
@@ -94,13 +97,8 @@ function task5()
     echo str_replace('Две', 'Три', 'Две бутылки лимонада');
 }
 
-function task6()
+function task6($fileName)
 {
-    file_put_contents('test.txt', 'Hello again!');
-    getFileContent('test.txt');
-}
-
-function getFileContent($fileName)
-{
+    file_put_contents($fileName, 'Hello again!');
     echo file_get_contents($fileName);
 }
