@@ -6,7 +6,7 @@ task1(['str1', 'str2', 'str3', 'str4']);
 
 task2('*', 6, 3, 'sfsdfsd', 2);
 
-task3(7, 8);
+task3(7, 6);
 
 task4();
 
