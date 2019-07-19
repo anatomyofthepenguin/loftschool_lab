@@ -59,11 +59,8 @@ function task2()
     return true;
 }
 
-function task3($num1, $num2)
+function task3(int $num1, int $num2)
 {
-    $num1 = (int) $num1;
-    $num2 = (int) $num2;
-
     if ($num1 < 1 || $num2 < 1) {
         echo "Ошибка: числа должны быть больше 0!";
         return false;
@@ -79,20 +76,25 @@ function task3($num1, $num2)
         echo '</tr>';
     }
     echo '</table>';
+
+    $num1--;
+    $num2--;
+    if ($num1 > 0 && $num2 > 0) {
+        task3($num1, $num2);
+    }
     return true;
 }
+
 
 function task4()
 {
     echo date('d.m.Y H:i');
-    echo '<br>';
     echo strtotime('24.02.2016 00:00:00');
 }
 
 function task5()
 {
     echo str_replace('К', '', 'Карл у Клары украл Кораллы');
-    echo '<br>';
     echo str_replace('Две', 'Три', 'Две бутылки лимонада');
 }
 
